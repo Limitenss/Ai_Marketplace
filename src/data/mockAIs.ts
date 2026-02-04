@@ -5,6 +5,7 @@ export const mockAIs: AI[] = [
   {
     id: '1',
     name: 'ChatGPT',
+    website: 'https://chat.openai.com/',
     description: 'Advanced language model for content generation, coding, and conversation',
     category: 'Content Generation',
     features: [
@@ -22,6 +23,7 @@ export const mockAIs: AI[] = [
   {
     id: '2',
     name: 'Claude',
+    website: 'https://claude.ai/',
     description: 'Anthropic\'s powerful language model with strong reasoning and analysis',
     category: 'Content Generation',
     features: ['Long context window (200K tokens)', 'Analysis', 'Writing', 'Coding', 'Safety-focused'],
@@ -34,6 +36,7 @@ export const mockAIs: AI[] = [
   {
     id: '3',
     name: 'Google Gemini',
+    website: 'https://gemini.google.com/',
     description: 'Google\'s multimodal AI with real-time information and integration',
     category: 'Content Generation',
     features: ['Multimodal', 'Real-time web access', 'Google integration', 'Image understanding'],
@@ -46,6 +49,7 @@ export const mockAIs: AI[] = [
   {
     id: '4',
     name: 'DALL-E 3',
+    website: 'https://openai.com/dall-e-3',
     description: 'State-of-the-art image generation from text descriptions',
     category: 'Image & Video',
     features: [
@@ -63,6 +67,7 @@ export const mockAIs: AI[] = [
   {
     id: '5',
     name: 'Midjourney',
+    website: 'https://www.midjourney.com/',
     description: 'Creative AI for generating artistic and commercial images',
     category: 'Image & Video',
     features: [
@@ -80,6 +85,7 @@ export const mockAIs: AI[] = [
   {
     id: '6',
     name: 'Stable Diffusion',
+    website: 'https://stability.ai/',
     description: 'Open-source image generation with complete control and customization',
     category: 'Image & Video',
     features: ['Open source', 'Local deployment', 'Fine-tuning', 'Model customization'],
@@ -92,6 +98,7 @@ export const mockAIs: AI[] = [
   {
     id: '7',
     name: 'GitHub Copilot',
+    website: 'https://github.com/features/copilot',
     description: 'AI-powered code completion and generation for developers',
     category: 'Coding',
     features: ['Code completion', 'Multi-language support', 'IDE integration', 'Context-aware'],
@@ -104,6 +111,7 @@ export const mockAIs: AI[] = [
   {
     id: '8',
     name: 'Cursor',
+    website: 'https://www.cursor.com/',
     description: 'AI-first code editor built for pair programming with AI',
     category: 'Coding',
     features: ['AI pair programming', 'Code generation', 'Codebase understanding', 'Chat interface'],
@@ -116,6 +124,7 @@ export const mockAIs: AI[] = [
   {
     id: '9',
     name: 'Perplexity AI',
+    website: 'https://www.perplexity.ai/',
     description: 'AI-powered search engine with citations and real-time information',
     category: 'Research & Search',
     features: ['Real-time search', 'Citations', 'Follow-up questions', 'Source transparency'],
@@ -128,6 +137,7 @@ export const mockAIs: AI[] = [
   {
     id: '10',
     name: 'Runway',
+    website: 'https://runwayml.com/',
     description: 'AI video editing and generation platform',
     category: 'Image & Video',
     features: ['Video generation', 'AI editing', 'Motion tracking', 'Green screen'],
@@ -140,6 +150,7 @@ export const mockAIs: AI[] = [
   {
     id: '11',
     name: 'ElevenLabs',
+    website: 'https://elevenlabs.io/',
     description: 'Advanced AI voice generation and cloning platform',
     category: 'Audio & Voice',
     features: ['Voice cloning', 'Text-to-speech', 'Multi-language', 'Voice library'],
@@ -152,6 +163,7 @@ export const mockAIs: AI[] = [
   {
     id: '12',
     name: 'Jasper',
+    website: 'https://www.jasper.ai/',
     description: 'AI content platform for marketing teams and writers',
     category: 'Content Generation',
     features: [
@@ -170,6 +182,7 @@ export const mockAIs: AI[] = [
   {
     id: '13',
     name: 'Copy.ai',
+    website: 'https://www.copy.ai/',
     description: 'AI content generator for marketing copy and social media',
     category: 'Content Generation',
     features: ['Copy generation', 'Templates', 'Workflows', 'Brand voice'],
@@ -182,6 +195,7 @@ export const mockAIs: AI[] = [
   {
     id: '14',
     name: 'Notion AI',
+    website: 'https://www.notion.so/product/ai',
     description: 'AI writing assistant integrated into Notion workspace',
     category: 'Productivity',
     features: ['Writing assistance', 'Summarization', 'Workflow integration', 'Q&A'],
@@ -194,6 +208,7 @@ export const mockAIs: AI[] = [
   {
     id: '15',
     name: 'Grammarly',
+    website: 'https://www.grammarly.com/',
     description: 'AI-powered writing assistant for grammar, style, and tone',
     category: 'Productivity',
     features: ['Grammar checking', 'Style suggestions', 'Tone detection', 'Plagiarism check'],
@@ -206,6 +221,7 @@ export const mockAIs: AI[] = [
   {
     id: '16',
     name: 'Otter.ai',
+    website: 'https://otter.ai/',
     description: 'AI meeting transcription and note-taking assistant',
     category: 'Productivity',
     features: ['Real-time transcription', 'Meeting summaries', 'Speaker identification', 'Integration'],
@@ -218,6 +234,7 @@ export const mockAIs: AI[] = [
   {
     id: '17',
     name: 'Synthesia',
+    website: 'https://www.synthesia.io/',
     description: 'AI video creation with AI avatars and voiceovers',
     category: 'Image & Video',
     features: ['AI avatars', 'Multi-language', 'Custom avatars', 'Templates'],
@@ -230,6 +247,7 @@ export const mockAIs: AI[] = [
   {
     id: '18',
     name: 'Tableau',
+    website: 'https://www.tableau.com/',
     description: 'Business intelligence and AI-powered data visualization',
     category: 'Data Analysis',
     features: ['Data visualization', 'AI insights', 'Dashboards', 'Real-time analytics'],
@@ -242,6 +260,7 @@ export const mockAIs: AI[] = [
   {
     id: '19',
     name: 'Beautiful.ai',
+    website: 'https://www.beautiful.ai/',
     description: 'AI-powered presentation design platform',
     category: 'Productivity',
     features: ['Smart templates', 'Auto-formatting', 'Design suggestions', 'Collaboration'],
@@ -254,6 +273,7 @@ export const mockAIs: AI[] = [
   {
     id: '20',
     name: 'Fireflies.ai',
+    website: 'https://fireflies.ai/',
     description: 'AI meeting assistant for recording and transcription',
     category: 'Productivity',
     features: ['Meeting recording', 'Transcription', 'AI summaries', 'CRM integration'],
@@ -266,6 +286,7 @@ export const mockAIs: AI[] = [
   {
     id: '21',
     name: 'Pictory',
+    website: 'https://pictory.ai/',
     description: 'AI video creation from text and long-form content',
     category: 'Image & Video',
     features: ['Text-to-video', 'Auto-captions', 'Video summarization', 'Stock footage'],
@@ -278,6 +299,7 @@ export const mockAIs: AI[] = [
   {
     id: '22',
     name: 'Descript',
+    website: 'https://www.descript.com/',
     description: 'AI-powered audio and video editing through text',
     category: 'Audio & Voice',
     features: ['Text-based editing', 'Overdub', 'Transcription', 'Screen recording'],
@@ -290,6 +312,7 @@ export const mockAIs: AI[] = [
   {
     id: '23',
     name: 'Hugging Face',
+    website: 'https://huggingface.co/',
     description: 'Open-source AI model hub and deployment platform',
     category: 'Development',
     features: ['Model repository', 'Inference API', 'Datasets', 'Spaces deployment'],
@@ -302,6 +325,7 @@ export const mockAIs: AI[] = [
   {
     id: '24',
     name: 'Replicate',
+    website: 'https://replicate.com/',
     description: 'Cloud platform for running AI models via API',
     category: 'Development',
     features: ['API access', 'Model hosting', 'Pay-per-use', 'Version control'],
@@ -314,6 +338,7 @@ export const mockAIs: AI[] = [
   {
     id: '25',
     name: 'Framer AI',
+    website: 'https://www.framer.com/ai/',
     description: 'AI website builder with design and copywriting assistance',
     category: 'Web Development',
     features: ['AI website generation', 'Copywriting', 'Design suggestions', 'Responsive'],
@@ -326,6 +351,7 @@ export const mockAIs: AI[] = [
   {
     id: '26',
     name: 'Zapier AI',
+    website: 'https://zapier.com/ai',
     description: 'Automation platform with AI-powered workflow creation',
     category: 'Automation',
     features: ['Workflow automation', 'AI suggestions', '6000+ integrations', 'Natural language'],
@@ -338,6 +364,7 @@ export const mockAIs: AI[] = [
   {
     id: '27',
     name: 'Mem',
+    website: 'https://mem.ai/',
     description: 'AI-powered note-taking with automatic organization',
     category: 'Productivity',
     features: ['Auto-organization', 'AI search', 'Smart linking', 'Knowledge graph'],
@@ -350,6 +377,7 @@ export const mockAIs: AI[] = [
   {
     id: '28',
     name: 'Character.AI',
+    website: 'https://character.ai/',
     description: 'Conversational AI platform with customizable characters',
     category: 'Entertainment',
     features: ['Character creation', 'Conversations', 'Role-play', 'Community characters'],
@@ -362,6 +390,7 @@ export const mockAIs: AI[] = [
   {
     id: '29',
     name: 'Krisp',
+    website: 'https://krisp.ai/',
     description: 'AI-powered noise cancellation for calls and recordings',
     category: 'Audio & Voice',
     features: ['Noise cancellation', 'Echo removal', 'Voice clarity', 'Meeting transcription'],
@@ -374,6 +403,7 @@ export const mockAIs: AI[] = [
   {
     id: '30',
     name: 'Podcastle',
+    website: 'https://podcastle.ai/',
     description: 'AI podcast creation and editing platform',
     category: 'Audio & Voice',
     features: ['Recording', 'AI editing', 'Transcription', 'Voice enhancement'],
@@ -386,6 +416,7 @@ export const mockAIs: AI[] = [
   {
     id: '31',
     name: 'Nano Banana',
+    website: 'https://deepmind.google/technologies/imagen/',
     description: 'Google\'s advanced image generation and understanding AI',
     category: 'Image & Video',
     features: ['Image generation', 'Image understanding', 'Advanced editing', 'Real-time processing', 'High quality output'],

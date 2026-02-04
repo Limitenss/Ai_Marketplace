@@ -9,6 +9,7 @@ export interface AI {
   pricing: string;
   rating: number;
   useCases: string[];
+  website: string;
   strengths?: string[];
   weaknesses?: string[];
 }

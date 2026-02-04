@@ -78,7 +78,14 @@ export function AICard({ ai, compact = false }: AICardProps) {
 
       <div className="ai-footer">
         <span className="pricing">{pricing}</span>
-        <button className="learn-more-btn">Learn More</button>
+        <a
+          className="learn-more-btn"
+          href={ai.website}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Learn More
+        </a>
       </div>
     </div>
   );
