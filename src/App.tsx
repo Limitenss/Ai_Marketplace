@@ -130,7 +130,9 @@ function App() {
       <ScenarioAnalyzer onSubmit={handleAnalyzerSubmit} isLoading={isLoading} />
       <div className="demo-warning" role="alert">
         Demo notice: For security reasons, the AI analyzer is disabled on this
-        public demo.
+        public demo. If you would like to test the full functionality, please
+        consider deploying your own instance following the instructions in our
+        GitHub repository.
       </div>
       {error && (
         <div
