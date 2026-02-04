@@ -1,114 +1,96 @@
-# AI Marketplace - Open Source Edition
+# AI Marketplace
 
-A modern, dark-themed AI tool discovery and recommendation platform powered by Groq's AI API.
+A web application for discovering and comparing AI tools. Features an AI-powered recommendation engine built with Groq API.
 
-## 🚀 Features
+## Features
 
-- **Dark Theme UI** with glass morphism effects
-- **AI Recommendations** using Groq API (llama-3.3-70b-versatile)
-- **30+ AI Tools** database with detailed information
-- **Staff Picks** - Featured top-rated AI tools
-- **Scenario Analyzer** - Get personalized AI recommendations based on your use case
-- **Browse AI** - Explore our comprehensive AI database
-- **Security First** - Built-in protections against common vulnerabilities
-  - Helmet.js for security headers
-  - Rate limiting to prevent abuse
-  - Input validation and sanitization
-  - CORS protection
+- Dark-themed UI with modern design
+- AI tool database with 30+ entries
+- Recommendation engine (Groq API)
+- Tool comparison and browsing
+- Security hardened (rate limiting, input validation, CORS)
+- RESTful API backend
 
-## 📋 Requirements
+## Requirements
 
-- Node.js 16+ 
+- Node.js 16+
 - npm or yarn
-- Groq API Key (get free at [https://console.groq.com](https://console.groq.com))
+- Groq API key (free tier available at https://console.groq.com)
 
-## 🔧 Installation
+## Installation
 
-### 1. Clone or Extract the Repository
+### Clone the repository
 ```bash
-# If downloaded as ZIP
-unzip ai-marketplace-opensource.zip
-cd ai-marketplace-opensource
+git clone https://github.com/yourusername/ai-marketplace.git
+cd ai-marketplace
 ```
 
-### 2. Frontend Setup
+### Frontend setup
 ```bash
-# Install dependencies
 npm install
-
-# Create environment file (optional for local testing)
-# .env file is already configured in vite.config.ts
 ```
 
-### 3. Backend Setup
+### Backend setup
 ```bash
-# Navigate to server directory
 cd server
-
-# Install dependencies
 npm install
 
-# Create .env file with your Groq API key
-# Create a file named `.env` and add:
-echo GROQ_API_KEY=your_actual_groq_api_key_here > .env
-echo CORS_ORIGIN=http://localhost:5173 >> .env
-echo PORT=3001 >> .env
+# Create .env file
+cat > .env << EOF
+GROQ_API_KEY=your_groq_api_key_here
+CORS_ORIGIN=http://localhost:5173
+PORT=3001
+EOF
 ```
 
-**Important:** Get your free Groq API key from [https://console.groq.com](https://console.groq.com)
+### Run the application
 
-### 4. Run the Application
-
-**Terminal 1 - Start Backend:**
+Terminal 1 - Backend:
 ```bash
 cd server
 npm start
-# Backend running on http://localhost:3001
 ```
 
-**Terminal 2 - Start Frontend (in project root):**
+Terminal 2 - Frontend:
 ```bash
 npm run dev
-# Frontend running on http://localhost:5173
 ```
 
-Visit `http://localhost:5173` in your browser.
+Open http://localhost:5173 in your browser.
 
-## 📁 Project Structure
+## Project structure
 
 ```
-ai-marketplace-opensource/
-├── src/                      # React frontend
-│   ├── components/          # React components
-│   ├── data/               # AI database & reference data
-│   ├── styles/             # Component CSS files
-│   ├── App.tsx             # Main app component
-│   └── main.tsx            # Entry point
-├── server/                  # Express backend
-│   ├── index.js            # API server & Groq integration
-│   ├── .env.example        # Environment template
-│   └── package.json        # Backend dependencies
-├── public/                  # Static assets
-├── package.json            # Frontend dependencies
-├── vite.config.ts          # Vite configuration
-└── tsconfig.json           # TypeScript configuration
+ai-marketplace/
+├── src/                   # React frontend
+│   ├── components/        # React components
+│   ├── data/             # AI database
+│   ├── styles/           # CSS files
+│   ├── App.tsx
+│   └── main.tsx
+├── server/               # Express backend
+│   ├── index.js          # API server
+│   ├── .env.example
+│   └── package.json
+├── public/               # Static files
+├── package.json
+├── vite.config.ts
+└── tsconfig.json
 ```
 
-## 🔌 API Endpoints
+## API endpoints
 
-### Health Check
+### Health check
 ```
 GET /api/health
 ```
-Returns server status (always available, no rate limit)
 
-### Get All AIs
+### Get all AI tools
 ```
 GET /api/ais
 ```
-Returns list of all AI tools in database
 
-### Analyze & Get Recommendations
+### Get recommendations
 ```
 POST /api/analyze
 Content-Type: application/json
@@ -117,156 +99,101 @@ Content-Type: application/json
   "useCase": "I need help with data analysis",
   "skills": "python, sql",
   "budget": "free",
-  "priorities": "accuracy, ease of use"
+  "priorities": "accuracy"
 }
 ```
 
-**Response:**
+Response:
 ```json
 {
-  "analysis": "Based on your requirements...",
+  "analysis": "...",
   "recommendations": [
     {
-      "name": "AI Tool Name",
+      "name": "Tool Name",
       "score": 0.95,
-      "reasoning": "Why this tool matches your needs"
+      "reasoning": "..."
     }
   ]
 }
 ```
 
-## 🔐 Security Features
+## Security
 
-### Implemented Protections
-- ✅ **Helmet.js** - Security headers (CSP, X-Frame-Options, etc.)
-- ✅ **Rate Limiting** - 30 requests per 15 minutes per IP (can be adjusted)
-- ✅ **Input Validation** - All fields validated before processing
-- ✅ **Sanitization** - XSS attack prevention
-- ✅ **CORS** - Restricted to configured origin
-- ✅ **Payload Size Limit** - 10KB max request size
-- ✅ **Error Handling** - Safe error messages (no stack traces)
+- Rate limiting: 30 requests per 15 minutes per IP
+- Input validation and sanitization
+- CORS protection
+- Security headers (Helmet.js)
+- 10KB payload size limit
+- Safe error handling
 
-### Environment Variables
-Never commit `.env` files! The `.env.example` file shows required variables:
+## Build for production
 
-```env
-# .env (NOT in version control)
-GROQ_API_KEY=your_api_key_here
-CORS_ORIGIN=http://localhost:5173
-PORT=3001
-```
-
-## 🛠 Build for Production
-
-### Frontend Build
+### Frontend
 ```bash
 npm run build
-# Output in `dist/` folder
+# Output in dist/
 ```
 
-### Deploy
+### Deploy options
 
-**Option 1: Vercel (Recommended for Frontend)**
+Vercel (frontend):
 ```bash
 npm install -g vercel
 vercel
-# Follow prompts, set API_ENDPOINT env var to your backend URL
 ```
 
-**Option 2: Heroku (Backend)**
+Heroku (backend):
 ```bash
-# Ensure Procfile exists or add:
-echo "web: node server/index.js" > Procfile
-
 heroku create your-app-name
 git push heroku main
 ```
 
-**Option 3: Docker**
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY . .
-RUN npm install
-WORKDIR /app/server
-RUN npm install
-EXPOSE 3001
-CMD ["npm", "start"]
+Docker:
+```bash
+docker build -t ai-marketplace .
+docker run -e GROQ_API_KEY=xxx -p 3001:3001 ai-marketplace
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
-### "Cannot GET /api/analyze"
-- Ensure backend is running on port 3001
-- Check CORS_ORIGIN in backend `.env` matches frontend URL
+| Issue | Solution |
+|-------|----------|
+| Cannot GET /api/analyze | Ensure backend is running on port 3001 |
+| Invalid API Key | Check GROQ_API_KEY in server/.env |
+| CORS Error | Update CORS_ORIGIN in server/.env |
+| Rate limit exceeded | Wait 15 minutes or adjust limit in server/index.js |
 
-### "Invalid API Key"
-- Verify Groq API key in `server/.env`
-- Generate new key at https://console.groq.com
+## Documentation
 
-### "CORS Error"
-- Update `CORS_ORIGIN` in `server/.env` to match frontend URL
-- Restart backend server
+- [CONTRIBUTING.md](./CONTRIBUTING.md) - Contributing guidelines
+- [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) - Deployment instructions
+- [SECURITY_AUDIT.md](./SECURITY_AUDIT.md) - Security details
+- [QUICK_START.md](./QUICK_START.md) - Quick start guide
 
-### Rate Limit Exceeded (429 error)
-- Wait 15 minutes or adjust rate limit in `server/index.js`
+## Tech stack
 
-## 📚 Documentation
+**Frontend:** React 19, TypeScript, Vite, CSS3
 
-- [SECURITY_AUDIT.md](./SECURITY_AUDIT.md) - Detailed security analysis
-- [SECURITY_IMPLEMENTATION.md](./SECURITY_IMPLEMENTATION.md) - Security implementation details
-- [SECURITY_SUMMARY.md](./SECURITY_SUMMARY.md) - Security best practices checklist
-- [README.md](./README.md) - Original project README
-- [SETUP_GUIDE.md](./SETUP_GUIDE.md) - Additional setup information
+**Backend:** Express, Groq SDK, Helmet, rate-limit
 
-## 📊 Tech Stack
+**Model:** Llama 3.3 70B (Groq)
 
-**Frontend:**
-- React 19.2.0
-- TypeScript 5.9.3
-- Vite 7.3.1
-- CSS3 (Glass morphism & animations)
-
-**Backend:**
-- Express 4.18.2
-- Groq SDK 0.3.3
-- Helmet 7.2.0
-- express-rate-limit 7.5.1
-
-**Model:**
-- Llama 3.3 70B (via Groq API)
-
-## 🤝 Contributing
-
-Contributions welcome! Please:
+## Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a pull request
 
-## 📝 License
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 
-This project is open source. See LICENSE file for details.
+## License
 
-## 🙏 Acknowledgments
+MIT - See LICENSE file for details.
 
-- Groq for the amazing AI API
-- Open source community for the awesome libraries
-- All AI tool creators featured in our database
+## Links
 
-## 🔗 Links
-
-- **Groq Console:** https://console.groq.com
-- **Groq Documentation:** https://console.groq.com/docs
-- **React Documentation:** https://react.dev
-- **Express Documentation:** https://expressjs.com
-
-## ❓ Questions?
-
-For issues and questions, please open an issue on GitHub or contact the project maintainers.
-
----
-
-**Happy exploring! 🚀**
+- [Groq Console](https://console.groq.com)
+- [React Docs](https://react.dev)
+- [Express Docs](https://expressjs.com)
