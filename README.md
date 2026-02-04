@@ -1,113 +1,58 @@
-# 🤖 AI Marketplace - Frontend
+# AI Marketplace
 
-Your React + Vite AI Marketplace frontend is fully configured and ready for development!
+React + Vite frontend for the AI Marketplace application.
 
-## ✨ What's Included
+## Contents
 
-✅ **7 Fully Styled Components:**
-
-- Header with navigation
-- Hero section with CTA
-- Browse AI catalog with search & filters
-- Scenario analyzer form
-- Recommendation results display
-- Individual AI cards
-- Footer
-
-✅ **Beautiful Design:**
-
-- Purple gradient theme (#667eea → #764ba2)
+- 7 React components (Header, Hero, BrowseAI, ScenarioAnalyzer, RecommendationResults, AICard, Footer)
+- Purple gradient design theme
 - Fully responsive (mobile-first)
-- Smooth animations and transitions
-- Modern UI patterns
+- TypeScript type-safe
+- Mock AI database included
 
-✅ **Type-Safe TypeScript:**
-
-- Complete type definitions
-- No TypeScript errors
-- Strict mode enabled
-
-## 🚀 Getting Started (5 minutes)
-
-### 1. Install & Run
+## Quick start
 
 ```bash
 npm install
 npm run dev
 ```
 
-The site will open at `http://localhost:5173`
+Frontend: http://localhost:5173
 
-### 2. Test the Frontend
-
-- Click "Get AI Recommendations" button in hero
-- Browse through the AI catalog with search/filters
-- Fill out the scenario analyzer form
-- See mock recommendations appear
-
-## 📋 Project Structure
+## Project structure
 
 ```
 src/
 ├── components/
-│   ├── Header.tsx              # Navigation
-│   ├── Hero.tsx                # CTA section
-│   ├── BrowseAI.tsx            # AI catalog
-│   ├── ScenarioAnalyzer.tsx    # Form
-│   ├── RecommendationResults.tsx # Results
-│   ├── AICard.tsx              # AI showcase
-│   └── Footer.tsx              # Footer
-├── styles/                     # Component CSS
-├── data/mockAIs.ts             # Mock data → Replace with API
-├── types.ts                    # TypeScript interfaces
-├── App.tsx                     # Main app
-└── App.css                     # Global styles
+│   ├── Header.tsx
+│   ├── Hero.tsx
+│   ├── BrowseAI.tsx
+│   ├── ScenarioAnalyzer.tsx
+│   ├── RecommendationResults.tsx
+│   ├── AICard.tsx
+│   └── Footer.tsx
+├── styles/
+├── data/mockAIs.ts
+├── types.ts
+├── App.tsx
+└── App.css
 ```
 
-## 🔌 Making It Functional
+## Integration with backend
 
-### Step 1: API Endpoint for Analysis
-
-**File:** `src/App.tsx` (handleAnalyzerSubmit function)
-
-```typescript
-const response = await fetch("/api/analyze", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(formData),
-});
-```
-
-Expected response:
+The `/api/analyze` endpoint should return:
 
 ```json
 {
   "scenario": "...",
-  "recommendedAIs": [{ AI objects }],
+  "recommendedAIs": [{ "name": "...", "score": 0.95 }],
   "explanation": "..."
 }
 ```
 
-### Step 2: Replace Mock AI Data
+Update `src/App.tsx` to connect to your backend API.
 
-**File:** `src/data/mockAIs.ts`
-
-Replace the array with API call:
-
-```typescript
-export async function fetchAIs() {
-  const response = await fetch("/api/ais");
-  return response.json();
-}
-```
-
-### Step 3: Add "Learn More" Links
-
-**File:** `src/components/AICard.tsx`
-
-Add functionality to the "Learn More" button.
-
-## 📊 Data Interfaces
+## Data interfaces
 
 ```typescript
 interface AI {
@@ -118,74 +63,39 @@ interface AI {
   features: string[];
   pricing: string;
   rating: number;
-  useCases: string[];
 }
 
 interface FormData {
   scenario: string;
   useCase?: string;
   budget?: string;
-  features?: string[];
-}
-
-interface ScenarioAnalysis {
-  scenario: string;
-  recommendedAIs: AI[];
-  explanation: string;
 }
 ```
 
-## 🎨 Customization
+## Customization
 
-**Change colors:**
-
-- Primary: `#667eea`
-- Secondary: `#764ba2`
+Colors: `#667eea` (primary), `#764ba2` (secondary)
 
 Edit in component CSS files or `src/index.css`
 
-**Change fonts:**
-Edit `src/index.css` font-family
-
-**Responsive breakpoint:**
-Currently 768px - change in component CSS if needed
-
-## 📦 Available Scripts
+## Scripts
 
 ```bash
-npm run dev      # Start dev server
-npm run build    # Build for production
+npm run dev      # Dev server
+npm run build    # Production build
 npm run lint     # Lint code
-npm run preview  # Preview production build
+npm run preview  # Preview build
 ```
 
-## ✅ Ready Checklist
+## Tech stack
 
-- [x] Frontend structure complete
-- [x] All components built and styled
-- [x] Mobile responsive
-- [x] Type-safe TypeScript
-- [x] Mock data included
-- [ ] Backend API endpoints
-- [ ] Connect to real data
-- [ ] Test on devices
-- [ ] Deploy
+- React 19
+- TypeScript
+- Vite
+- CSS3
 
-## 📚 Resources
+## Resources
 
-- [React Docs](https://react.dev)
-- [Vite Docs](https://vitejs.dev)
-- [TypeScript Docs](https://www.typescriptlang.org)
-- [SETUP_GUIDE.md](./SETUP_GUIDE.md) - Detailed backend integration guide
-
-## 💡 Key Features
-
-1. **Mock data is production-ready** - Use as API response template
-2. **Reusable components** - All components accept props
-3. **Mobile-first design** - Optimized for all devices
-4. **Smooth scrolling** - HTML scrolling enabled
-5. **Sticky header** - Navigation always visible
-
----
-
-**Next:** Replace mock data with your backend API endpoints!
+- [React](https://react.dev)
+- [Vite](https://vitejs.dev)
+- [TypeScript](https://www.typescriptlang.org)
