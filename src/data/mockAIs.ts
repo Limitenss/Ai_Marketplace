@@ -383,4 +383,16 @@ export const mockAIs: AI[] = [
     strengths: ['All-in-one solution', 'Easy editing', 'Good quality', 'Collaborative'],
     weaknesses: ['Limited free tier', 'Some features buggy', 'Export limitations'],
   },
+  {
+    id: '31',
+    name: 'Nano Banana',
+    description: 'Google\'s advanced image generation and understanding AI',
+    category: 'Image & Video',
+    features: ['Image generation', 'Image understanding', 'Advanced editing', 'Real-time processing', 'High quality output'],
+    pricing: 'Free tier or $10-50/month',
+    rating: 4.7,
+    useCases: ['Image Generation', 'Design', 'Content Creation', 'Visual Analysis'],
+    strengths: ['High quality images', 'Fast generation', 'Excellent understanding', 'Google integration'],
+    weaknesses: ['Limited free tier', 'Can be expensive', 'Some content restrictions'],
+  },
 ];

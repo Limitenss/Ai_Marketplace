@@ -22,50 +22,62 @@ function renderStars(rating: number) {
 }
 
 export function AICard({ ai, compact = false }: AICardProps) {
+  // Safely handle missing properties
+  const features = Array.isArray(ai.features) ? ai.features : [];
+  const useCases = Array.isArray(ai.useCases) ? ai.useCases : [];
+  const description = ai.description || "No description available";
+  const category = ai.category || "General";
+  const pricing = ai.pricing || "Contact for pricing";
+  const rating = typeof ai.rating === "number" ? ai.rating : 4.5;
+
   return (
     <div className={`ai-card ${compact ? "compact" : ""}`}>
       <div className="ai-header">
         <h3>{ai.name}</h3>
         <div className="rating">
           <div className="stars-container">
-            {renderStars(ai.rating)}
-            <span className="rating-value">{ai.rating.toFixed(1)}</span>
+            {renderStars(rating)}
+            <span className="rating-value">{rating.toFixed(1)}</span>
           </div>
         </div>
       </div>
 
-      <p className="ai-description">{ai.description}</p>
+      <p className="ai-description">{description}</p>
 
       <div className="ai-category">
-        <span className="category-badge">{ai.category}</span>
+        <span className="category-badge">{category}</span>
       </div>
 
       {!compact && (
         <>
-          <div className="ai-features">
-            <h4>Key Features:</h4>
-            <ul>
-              {ai.features.map((feature) => (
-                <li key={feature}>{feature}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="ai-use-cases">
-            <h4>Best For:</h4>
-            <div className="use-cases">
-              {ai.useCases.map((useCase) => (
-                <span key={useCase} className="use-case-tag">
-                  {useCase}
-                </span>
-              ))}
+          {features.length > 0 && (
+            <div className="ai-features">
+              <h4>Key Features:</h4>
+              <ul>
+                {features.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
             </div>
-          </div>
+          )}
+
+          {useCases.length > 0 && (
+            <div className="ai-use-cases">
+              <h4>Best For:</h4>
+              <div className="use-cases">
+                {useCases.map((useCase) => (
+                  <span key={useCase} className="use-case-tag">
+                    {useCase}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </>
       )}
 
       <div className="ai-footer">
-        <span className="pricing">{ai.pricing}</span>
+        <span className="pricing">{pricing}</span>
         <button className="learn-more-btn">Learn More</button>
       </div>
     </div>

@@ -38,9 +38,9 @@ function App() {
     try {
       // Sanitize inputs
       const sanitizedData = {
-        scenario: sanitizeInput(formData.scenario, 500),
-        useCase: sanitizeInput(formData.useCase, 100),
-        budget: sanitizeInput(formData.budget, 100),
+        scenario: sanitizeInput(formData.scenario || "", 500),
+        useCase: sanitizeInput(formData.useCase || "", 100),
+        budget: sanitizeInput(formData.budget || "", 100),
         features: (formData.features || [])
           .filter((f) => typeof f === "string" && f.length > 0)
           .map((f) => sanitizeInput(f, 50))
@@ -129,8 +129,18 @@ function App() {
       <BrowseAI ais={mockAIs} />
       <ScenarioAnalyzer onSubmit={handleAnalyzerSubmit} isLoading={isLoading} />
       {error && (
-        <div style={{ padding: "20px", color: "red", textAlign: "center" }}>
-          {error}
+        <div
+          style={{
+            padding: "20px",
+            backgroundColor: "#2a1a1a",
+            color: "#ff6b6b",
+            textAlign: "center",
+            margin: "1rem",
+            borderRadius: "8px",
+            border: "1px solid #ff6b6b",
+          }}
+        >
+          <strong>Error:</strong> {error}
         </div>
       )}
       <RecommendationResults

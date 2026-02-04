@@ -15,10 +15,12 @@ export function RecommendationResults({
   explanation,
   isLoading,
 }: RecommendationResultsProps) {
+  // Early return if nothing to show
   if (!scenario && !isLoading) {
     return null;
   }
 
+  // Show loading state
   if (isLoading) {
     return (
       <section className="results-section loading">
@@ -30,6 +32,13 @@ export function RecommendationResults({
     );
   }
 
+  // Ensure we have valid data
+  const hasRecommendations =
+    Array.isArray(recommendedAIs) && recommendedAIs.length > 0;
+  const validExplanation =
+    explanation ||
+    "Based on your scenario, we've analyzed your needs and selected these AI tools that best match your requirements.";
+
   return (
     <section className="results-section">
       <div className="results-container">
@@ -37,13 +46,13 @@ export function RecommendationResults({
 
         <div className="analysis-explanation">
           <h3>Analysis</h3>
-          <p>{explanation}</p>
+          <p>{validExplanation}</p>
         </div>
 
-        {recommendedAIs.length > 0 ? (
+        {hasRecommendations ? (
           <div className="ai-grid">
             {recommendedAIs.map((ai) => (
-              <AICard key={ai.id} ai={ai} />
+              <AICard key={ai.id || ai.name} ai={ai} />
             ))}
           </div>
         ) : (
