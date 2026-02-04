@@ -124,14 +124,14 @@ function App() {
 
   return (
     <div className="app">
-      <div className="demo-warning" role="alert">
-        Demo notice: For security reasons, the AI analyzer is disabled on this
-        public demo.
-      </div>
       <Header />
       <Hero onAnalyzeClick={handleHeroClick} />
       <BrowseAI ais={mockAIs} />
       <ScenarioAnalyzer onSubmit={handleAnalyzerSubmit} isLoading={isLoading} />
+      <div className="demo-warning" role="alert">
+        Demo notice: For security reasons, the AI analyzer is disabled on this
+        public demo.
+      </div>
       {error && (
         <div
           style={{
