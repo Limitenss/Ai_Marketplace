@@ -29,6 +29,11 @@ function App() {
   const [error, setError] = useState<string | null>(null);
 
   const handleAnalyzerSubmit = async (formData: FormData) => {
+    // Prevent double submission - don't process if already loading
+    if (isLoading) {
+      return;
+    }
+
     setIsLoading(true);
     setError(null);
 

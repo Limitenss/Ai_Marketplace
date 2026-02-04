@@ -3,12 +3,14 @@
 Get AI Marketplace running in 5 minutes!
 
 ## 📦 Prerequisites
+
 - Node.js 16+
 - Groq API Key (free at https://console.groq.com)
 
 ## 🚀 Quick Setup
 
 ### Step 1: Get Groq API Key (2 min)
+
 1. Visit https://console.groq.com
 2. Sign up or log in
 3. Go to API Keys section
@@ -16,6 +18,7 @@ Get AI Marketplace running in 5 minutes!
 5. Copy the key
 
 ### Step 2: Setup Backend (2 min)
+
 ```bash
 cd server
 
@@ -31,6 +34,7 @@ npm start
 ```
 
 ### Step 3: Setup Frontend (1 min)
+
 ```bash
 # In project root
 npm install
@@ -77,12 +81,12 @@ curl -X POST http://localhost:3001/api/analyze \
 
 ## 🛠 Troubleshooting
 
-| Problem | Solution |
-|---------|----------|
-| CORS Error | Restart backend, check .env CORS_ORIGIN |
-| Invalid API Key | Check key in server/.env matches Groq console |
-| Port 3001 in use | Change PORT in server/.env |
-| Cannot connect | Ensure both servers running in separate terminals |
+| Problem          | Solution                                          |
+| ---------------- | ------------------------------------------------- |
+| CORS Error       | Restart backend, check .env CORS_ORIGIN           |
+| Invalid API Key  | Check key in server/.env matches Groq console     |
+| Port 3001 in use | Change PORT in server/.env                        |
+| Cannot connect   | Ensure both servers running in separate terminals |
 
 ## 📚 Full Documentation
 
@@ -101,7 +105,9 @@ curl -X POST http://localhost:3001/api/analyze \
 ## 💡 Common Tasks
 
 ### Add Your Own AI Tool
+
 Edit `src/data/mockAIs.ts` and add to the array:
+
 ```typescript
 {
   id: "my-tool",
@@ -116,19 +122,23 @@ Edit `src/data/mockAIs.ts` and add to the array:
 ```
 
 ### Change Port Numbers
+
 Backend `server/.env`:
+
 ```env
 PORT=3002
 ```
 
 Frontend `vite.config.ts`:
+
 ```typescript
 server: {
-  port: 5174
+  port: 5174;
 }
 ```
 
 ### Deploy to Production
+
 ```bash
 # Follow DEPLOYMENT_GUIDE.md for detailed instructions
 # Quick: npm run build (frontend), then deploy both

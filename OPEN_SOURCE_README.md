@@ -20,17 +20,20 @@ A web application for discovering and comparing AI tools. Features an AI-powered
 ## Installation
 
 ### Clone the repository
+
 ```bash
 git clone https://github.com/yourusername/ai-marketplace.git
 cd ai-marketplace
 ```
 
 ### Frontend setup
+
 ```bash
 npm install
 ```
 
 ### Backend setup
+
 ```bash
 cd server
 npm install
@@ -46,12 +49,14 @@ EOF
 ### Run the application
 
 Terminal 1 - Backend:
+
 ```bash
 cd server
 npm start
 ```
 
 Terminal 2 - Frontend:
+
 ```bash
 npm run dev
 ```
@@ -81,16 +86,19 @@ ai-marketplace/
 ## API endpoints
 
 ### Health check
+
 ```
 GET /api/health
 ```
 
 ### Get all AI tools
+
 ```
 GET /api/ais
 ```
 
 ### Get recommendations
+
 ```
 POST /api/analyze
 Content-Type: application/json
@@ -104,6 +112,7 @@ Content-Type: application/json
 ```
 
 Response:
+
 ```json
 {
   "analysis": "...",
@@ -129,6 +138,7 @@ Response:
 ## Build for production
 
 ### Frontend
+
 ```bash
 npm run build
 # Output in dist/
@@ -137,18 +147,21 @@ npm run build
 ### Deploy options
 
 Vercel (frontend):
+
 ```bash
 npm install -g vercel
 vercel
 ```
 
 Heroku (backend):
+
 ```bash
 heroku create your-app-name
 git push heroku main
 ```
 
 Docker:
+
 ```bash
 docker build -t ai-marketplace .
 docker run -e GROQ_API_KEY=xxx -p 3001:3001 ai-marketplace
@@ -156,12 +169,12 @@ docker run -e GROQ_API_KEY=xxx -p 3001:3001 ai-marketplace
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| Cannot GET /api/analyze | Ensure backend is running on port 3001 |
-| Invalid API Key | Check GROQ_API_KEY in server/.env |
-| CORS Error | Update CORS_ORIGIN in server/.env |
-| Rate limit exceeded | Wait 15 minutes or adjust limit in server/index.js |
+| Issue                   | Solution                                           |
+| ----------------------- | -------------------------------------------------- |
+| Cannot GET /api/analyze | Ensure backend is running on port 3001             |
+| Invalid API Key         | Check GROQ_API_KEY in server/.env                  |
+| CORS Error              | Update CORS_ORIGIN in server/.env                  |
+| Rate limit exceeded     | Wait 15 minutes or adjust limit in server/index.js |
 
 ## Documentation
 

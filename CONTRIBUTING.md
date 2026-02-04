@@ -14,27 +14,34 @@ Thank you for your interest in contributing to AI Marketplace! This document pro
 ## 🐛 Reporting Bugs
 
 Before creating a bug report:
+
 1. Check if the bug is already reported in Issues
 2. Collect information: OS, browser, Node version, steps to reproduce
 3. Include error messages and logs
 
 **Create a bug report with:**
+
 ```markdown
 ## Description
+
 Brief description of the bug
 
 ## Steps to Reproduce
+
 1. Step 1
 2. Step 2
 3. Step 3
 
 ## Expected Behavior
+
 What should happen
 
 ## Actual Behavior
+
 What actually happens
 
 ## Environment
+
 - OS: [Windows/Mac/Linux]
 - Node: [Version]
 - Browser: [If applicable]
@@ -43,31 +50,38 @@ What actually happens
 ## 💡 Suggesting Features
 
 Open an issue with:
+
 ```markdown
 ## Feature Description
+
 What feature would you like?
 
 ## Use Case
+
 Why would this be useful?
 
 ## Possible Implementation
+
 How could this be implemented?
 ```
 
 ## 🔧 Setting Up Development Environment
 
 1. **Fork the repository**
+
    ```bash
    # Click "Fork" button on GitHub
    ```
 
 2. **Clone your fork**
+
    ```bash
    git clone https://github.com/YOUR-USERNAME/ai-marketplace.git
    cd ai-marketplace
    ```
 
 3. **Add upstream remote**
+
    ```bash
    git remote add upstream https://github.com/ORIGINAL-OWNER/ai-marketplace.git
    ```
@@ -77,6 +91,7 @@ How could this be implemented?
 ## 📝 Making Changes
 
 ### Branch Naming Convention
+
 ```
 feature/add-feature-name        # New features
 bugfix/fix-bug-description      # Bug fixes
@@ -85,11 +100,13 @@ refactor/improve-performance   # Refactoring
 ```
 
 ### Example:
+
 ```bash
 git checkout -b feature/add-new-ai-tools
 ```
 
 ### Commit Message Format
+
 ```
 [Type] Brief description
 
@@ -100,6 +117,7 @@ Fixes #123
 **Types:** feat, fix, docs, style, refactor, perf, test, chore
 
 **Example:**
+
 ```
 [feat] Add Google Gemini to AI database
 
@@ -111,6 +129,7 @@ Fixes #123
 ## 🧪 Code Style & Standards
 
 ### TypeScript/JavaScript
+
 - Use TypeScript for type safety
 - Follow existing code style
 - 2-space indentation
@@ -118,17 +137,19 @@ Fixes #123
 - Use meaningful variable names
 
 ### CSS
+
 - Use existing class naming conventions
 - Maintain glass morphism aesthetic
 - Mobile-first responsive design
 - Use CSS variables for colors
 
 ### React Components
+
 ```typescript
 // ✅ Good
 function MyComponent() {
   const [state, setState] = useState(false);
-  
+
   return (
     <div className="my-component">
       {/* Component JSX */}
@@ -144,22 +165,21 @@ function my_component() {
 ```
 
 ### Backend (Express)
+
 ```javascript
 // ✅ Good
-app.post('/api/endpoint', validateInput, async (req, res) => {
+app.post("/api/endpoint", validateInput, async (req, res) => {
   try {
     const result = await processData(req.body);
     res.json(result);
   } catch (error) {
-    res.status(500).json({ error: 'Safe error message' });
+    res.status(500).json({ error: "Safe error message" });
   }
 });
 
 // ❌ Avoid
-app.post('/api/endpoint', (req, res) => {
-  processData(req.body)
-    .then(res.json)
-    .catch(res.send);
+app.post("/api/endpoint", (req, res) => {
+  processData(req.body).then(res.json).catch(res.send);
 });
 ```
 
@@ -202,6 +222,7 @@ To add a new AI tool to the database:
 ## 🔐 Security Considerations
 
 When contributing, ensure:
+
 - ✅ No API keys or secrets in code
 - ✅ Input validation for all user inputs
 - ✅ Proper error handling (no stack traces to users)
@@ -212,6 +233,7 @@ When contributing, ensure:
 ## 🧪 Testing
 
 ### Frontend
+
 ```bash
 # If tests are added
 npm run test
@@ -219,12 +241,14 @@ npm run test:watch
 ```
 
 ### Backend
+
 ```bash
 cd server
 npm run test
 ```
 
 ### Manual Testing Checklist
+
 - [ ] Works on localhost
 - [ ] No console errors
 - [ ] Forms validate input
@@ -238,12 +262,14 @@ npm run test
 ### Pull Request Process
 
 1. **Update your branch**
+
    ```bash
    git fetch upstream
    git rebase upstream/main
    ```
 
 2. **Push to your fork**
+
    ```bash
    git push origin feature/your-feature
    ```
@@ -255,20 +281,25 @@ npm run test
    - List any breaking changes
 
 4. **PR Description Template**
+
    ```markdown
    ## Description
+
    What changes are made?
 
    ## Type of Change
+
    - [ ] Bug fix
    - [ ] New feature
    - [ ] Breaking change
    - [ ] Documentation update
 
    ## Testing
+
    How was this tested?
 
    ## Checklist
+
    - [ ] Code follows style guidelines
    - [ ] Self-review completed
    - [ ] Comments added for complex logic
@@ -289,6 +320,7 @@ npm run test
 ## 📚 Documentation
 
 When adding features:
+
 - Update relevant .md files
 - Add code comments for complex logic
 - Update API documentation if needed
@@ -297,12 +329,14 @@ When adding features:
 ## 🚀 Release Process
 
 ### Version Numbering
+
 - MAJOR.MINOR.PATCH
 - MAJOR: Breaking changes
 - MINOR: New features (backward compatible)
 - PATCH: Bug fixes
 
 ### Release Steps
+
 1. Update version in package.json
 2. Update CHANGELOG.md
 3. Create git tag: `git tag vX.X.X`
@@ -319,6 +353,7 @@ When adding features:
 ## 🎉 Recognition
 
 Contributors are recognized in:
+
 - GitHub Contributors page
 - Release notes
 - Project README

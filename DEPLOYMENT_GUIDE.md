@@ -35,16 +35,20 @@ vercel
 ```
 
 **Set Environment Variables:**
+
 ```bash
 vercel env add API_ENDPOINT https://your-backend.com/api
 ```
 
 **Update vite.config.ts:**
+
 ```typescript
-const API_ENDPOINT = process.env.VITE_API_ENDPOINT || 'http://localhost:3001/api';
+const API_ENDPOINT =
+  process.env.VITE_API_ENDPOINT || "http://localhost:3001/api";
 ```
 
 **Deploy:**
+
 ```bash
 vercel --prod
 ```
@@ -63,6 +67,7 @@ netlify deploy --prod --dir=dist
 ```
 
 **Environment Variables:**
+
 - Dashboard → Site settings → Build & deploy → Environment
 - Add `VITE_API_ENDPOINT=https://your-backend.com/api`
 
@@ -108,6 +113,7 @@ heroku logs --tail
 ```
 
 **Procfile (already included):**
+
 ```
 web: node index.js
 ```
@@ -168,6 +174,7 @@ sudo nano /etc/nginx/sites-available/default
 ```
 
 **Nginx Configuration:**
+
 ```nginx
 server {
     listen 80;
@@ -185,6 +192,7 @@ server {
 ```
 
 **Enable HTTPS with Let's Encrypt:**
+
 ```bash
 sudo apt-get install certbot python3-certbot-nginx
 sudo certbot --nginx -d api.your-domain.com
@@ -193,6 +201,7 @@ sudo certbot --nginx -d api.your-domain.com
 ## 🐳 Docker Deployment
 
 **Dockerfile:**
+
 ```dockerfile
 FROM node:18-alpine
 
@@ -217,6 +226,7 @@ CMD ["node", "server/index.js"]
 ```
 
 **Build and Run:**
+
 ```bash
 # Build image
 docker build -t ai-marketplace:latest .
@@ -234,8 +244,9 @@ docker logs ai-marketplace
 ```
 
 **Docker Compose:**
+
 ```yaml
-version: '3.8'
+version: "3.8"
 services:
   api:
     build: .
@@ -290,6 +301,7 @@ pm2 logs
 ### Uptime Monitoring
 
 Use services like:
+
 - UptimeRobot (free tier available)
 - Statuspageio
 - NewRelic
@@ -298,11 +310,13 @@ Use services like:
 
 ```javascript
 // Add logging to server/index.js
-const fs = require('fs');
-const accessLog = fs.createWriteStream('access.log', { flags: 'a' });
+const fs = require("fs");
+const accessLog = fs.createWriteStream("access.log", { flags: "a" });
 
 app.use((req, res, next) => {
-  accessLog.write(`${new Date().toISOString()} ${req.method} ${req.url} ${res.statusCode}\n`);
+  accessLog.write(
+    `${new Date().toISOString()} ${req.method} ${req.url} ${res.statusCode}\n`,
+  );
   next();
 });
 ```
@@ -310,6 +324,7 @@ app.use((req, res, next) => {
 ## 🚨 Scaling & Performance
 
 ### Frontend Optimization
+
 - Enable gzip compression
 - Use CDN (CloudFront, Cloudflare)
 - Minify and bundle CSS/JS
@@ -317,6 +332,7 @@ app.use((req, res, next) => {
 - Enable caching
 
 ### Backend Optimization
+
 - Connection pooling
 - Request caching
 - Rate limiting (already implemented)
@@ -326,6 +342,7 @@ app.use((req, res, next) => {
 ### Load Balancing
 
 **AWS Load Balancer:**
+
 ```bash
 # Create ALB with multiple backend instances
 # Configure health check: /api/health
@@ -333,6 +350,7 @@ app.use((req, res, next) => {
 ```
 
 **Nginx Load Balancing:**
+
 ```nginx
 upstream api_backend {
     server api-instance-1:3001;
@@ -362,14 +380,14 @@ name: Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
@@ -381,6 +399,7 @@ jobs:
 ## 📈 Post-Deployment
 
 1. **Test all endpoints**
+
    ```bash
    curl https://api.your-domain.com/api/health
    ```
