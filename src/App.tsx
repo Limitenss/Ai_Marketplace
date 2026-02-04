@@ -11,15 +11,13 @@ import type { FormData, ScenarioAnalysis } from "./types.ts";
 
 // Security utility functions
 const sanitizeInput = (input: string, maxLength: number = 1000): string => {
-  if (!input) return '';
+  if (!input) return "";
   // Remove any HTML/script tags
-  return String(input)
-    .trim()
-    .substring(0, maxLength)
-    .replace(/[<>]/g, '');
+  return String(input).trim().substring(0, maxLength).replace(/[<>]/g, "");
 };
 
-const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT || "http://localhost:3001/api/analyze";
+const API_ENDPOINT =
+  import.meta.env.VITE_API_ENDPOINT || "http://localhost:3001/api/analyze";
 
 function App() {
   const [selectedScenario, setSelectedScenario] = useState("");
@@ -44,8 +42,8 @@ function App() {
         useCase: sanitizeInput(formData.useCase, 100),
         budget: sanitizeInput(formData.budget, 100),
         features: (formData.features || [])
-          .filter(f => typeof f === 'string' && f.length > 0)
-          .map(f => sanitizeInput(f, 50))
+          .filter((f) => typeof f === "string" && f.length > 0)
+          .map((f) => sanitizeInput(f, 50))
           .slice(0, 10),
       };
 
@@ -59,9 +57,9 @@ function App() {
       // Call the backend API with proper error handling
       const response = await fetch(API_ENDPOINT, {
         method: "POST",
-        headers: { 
+        headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify(sanitizedData),
       });
@@ -87,7 +85,9 @@ function App() {
       setSelectedScenario(sanitizedData.scenario);
     } catch (error) {
       console.error("Error analyzing scenario:", error);
-      setError(error instanceof Error ? error.message : "Failed to analyze scenario");
+      setError(
+        error instanceof Error ? error.message : "Failed to analyze scenario",
+      );
 
       // Fallback to mock data if API fails
       const mockExplanation = `Based on your scenario, we've analyzed your needs and selected these AI tools that best match your requirements.`;
@@ -128,7 +128,11 @@ function App() {
       <Hero onAnalyzeClick={handleHeroClick} />
       <BrowseAI ais={mockAIs} />
       <ScenarioAnalyzer onSubmit={handleAnalyzerSubmit} isLoading={isLoading} />
-      {error && <div style={{ padding: '20px', color: 'red', textAlign: 'center' }}>{error}</div>}
+      {error && (
+        <div style={{ padding: "20px", color: "red", textAlign: "center" }}>
+          {error}
+        </div>
+      )}
       <RecommendationResults
         scenario={selectedScenario}
         recommendedAIs={recommendations?.recommendedAIs || []}

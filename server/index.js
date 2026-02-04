@@ -31,9 +31,18 @@ app.use(helmet({
   xssFilter: true,
 }));
 
-// CORS configuration - restrict to specific origin
+// CORS configuration - allow localhost on any high port for development
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+  origin: (origin, callback) => {
+    const allowedOrigins = process.env.CORS_ORIGIN?.split(',') || 
+      ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176'];
+    
+    if (!origin || allowedOrigins.some(o => origin.includes(o))) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
