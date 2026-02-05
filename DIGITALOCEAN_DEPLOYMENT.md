@@ -25,7 +25,7 @@
 1. In the DigitalOcean app editor, go to **Environment**
 2. Add your GROQ API key:
    - **Key**: `GROQ_API_KEY`
-   - **Value**: Your actual API key (paste: `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`)
+   - **Value**: Your actual GROQ API key (from groq.com console)
    - **Scope**: Select both **Build-time** and **Run-time**
 
 ### Step 5: Deploy
