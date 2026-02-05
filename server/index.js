@@ -31,11 +31,11 @@ app.use(helmet({
   xssFilter: true,
 }));
 
-// CORS configuration - allow localhost on any high port for development
+// CORS configuration - allow localhost for development and GitHub Pages for production
 const corsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = process.env.CORS_ORIGIN?.split(',') || 
-      ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176'];
+      ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176', 'https://limitenss.github.io'];
     
     if (!origin || allowedOrigins.some(o => origin.includes(o))) {
       callback(null, true);
