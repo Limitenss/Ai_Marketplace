@@ -37,13 +37,13 @@ const corsOptions = {
     const allowedOrigins = process.env.CORS_ORIGIN?.split(',') || 
       ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176', 'https://limitenss.github.io'];
     
-    if (!origin || allowedOrigins.some(o => origin.includes(o))) {
+    if (!origin || allowedOrigins.some(o => origin?.includes(o))) {
       callback(null, true);
     } else {
       callback(new Error('CORS not allowed'));
     }
   },
-  credentials: true,
+  credentials: false,
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
   maxAge: 86400,
